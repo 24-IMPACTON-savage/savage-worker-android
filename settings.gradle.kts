@@ -8,6 +8,7 @@ pluginManagement {
 dependencyResolutionManagement {
     repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
     repositories {
+        maven("https://devrepo.kakao.com/nexus/repository/kakaomap-releases/")
         google()
         mavenCentral()
     }

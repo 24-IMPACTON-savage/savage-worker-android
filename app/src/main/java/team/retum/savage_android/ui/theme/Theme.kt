@@ -4,13 +4,13 @@ import android.app.Activity
 import android.os.Build
 import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.material3.MaterialTheme
-import androidx.compose.material3.Typography
 import androidx.compose.material3.darkColorScheme
 import androidx.compose.material3.dynamicDarkColorScheme
 import androidx.compose.material3.dynamicLightColorScheme
 import androidx.compose.material3.lightColorScheme
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.SideEffect
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.toArgb
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.platform.LocalView
@@ -40,23 +40,14 @@ fun SavageandroidTheme(
     if (!view.isInEditMode) {
         SideEffect {
             val window = (view.context as Activity).window
-            window.statusBarColor = colorScheme.primary.toArgb()
+//            window.statusBarColor = Color.Transparent.toArgb()
             WindowCompat.getInsetsController(window, view).isAppearanceLightStatusBars = darkTheme
         }
     }
 
     MaterialTheme(
         colorScheme = colorScheme,
-        typography = Typography(
-            titleLarge = SavageTypography.Title1,
-            titleMedium = SavageTypography.Title2,
-            titleSmall = SavageTypography.Title3,
-            headlineLarge = SavageTypography.HeadLine1,
-            headlineMedium = SavageTypography.HeadLine2,
-            headlineSmall = SavageTypography.HeadLine3,
-            bodyLarge = SavageTypography.Body1,
-            bodyMedium = SavageTypography.Body2,
-            bodySmall = SavageTypography.Body3),
+//        typography = Typography,
         content = content
     )
 }
