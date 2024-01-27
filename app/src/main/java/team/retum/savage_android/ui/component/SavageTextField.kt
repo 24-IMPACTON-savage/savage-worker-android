@@ -63,30 +63,30 @@ fun SavageTextField(
                 .fillMaxWidth()
                 .padding(
                     vertical = 12.dp,
-                    horizontal = 16.dp,
-                ),
+                )
+                .padding(start = 4.dp),
             contentAlignment = Alignment.CenterStart,
         ) {
             BasicTextField(
-                modifier = Modifier.onFocusChanged {
-                    focused = it.isFocused
-                },
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .onFocusChanged {
+                        focused = it.isFocused
+                    },
                 value = value,
                 onValueChange = onValueChange,
                 textStyle = SavageTypography.Body3,
                 singleLine = true,
                 decorationBox = { it() },
-            )
+
+                )
             Text(
                 modifier = Modifier
                     .alpha(alpha)
                     .offset(
                         y = y,
                         x = x,
-                    ),
-                text = hint,
-                color = color,
-                style = SavageTypography.Body3
+                    ), text = hint, color = SavageColor.Gray40, style = SavageTypography.Body3
             )
         }
         Divider(
