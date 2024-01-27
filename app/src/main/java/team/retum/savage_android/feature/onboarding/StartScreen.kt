@@ -48,6 +48,9 @@ fun StartScreen(
             style = SavageTypography.Body2,
             color = SavageColor.Primary40
         )
+
+        Spacer(modifier = Modifier.weight(2f))
+        Image(painter = painterResource(id = R.drawable.a), contentDescription = null)
         Spacer(modifier = Modifier.weight(1f))
 
         Image(
