@@ -69,7 +69,7 @@ fun StartScreen(
                 rippleEnable = false,
             ) {
                 // mv to join screen
-                navController.navigate(NavGroup.Onboarding.Join1.id + "/hello")
+                navController.navigate(NavGroup.Onboarding.Join0.id)
             }
         )
         Spacer(modifier = Modifier.padding(bottom = 20.dp))
