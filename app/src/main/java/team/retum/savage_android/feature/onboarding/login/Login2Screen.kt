@@ -1,5 +1,6 @@
 package team.retum.savage_android.feature.onboarding.login
 
+import android.widget.Toast
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -14,6 +15,7 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
 import team.retum.savage_android.feature.root.NavGroup
@@ -44,6 +46,7 @@ fun Login2Screen(
 
     var tel by remember { mutableStateOf("") }
     val keyboardShow by rememberKeyboardIsOpen()
+    val context = LocalContext.current
 
     SavageAppBar(
         callback = {
@@ -63,9 +66,10 @@ fun Login2Screen(
                 modifier = if (!keyboardShow) Modifier.padding(horizontal = 16.dp) else Modifier,
                 onClick = {
                     if (tel.isNotBlank()) {
-                        
+                        // mv to home
                     } else {
                         // handling
+                        Toast.makeText(context, "비밀번호를 입력해 주세요", Toast.LENGTH_SHORT).show()
                     }
                 },
                 text = "다음",
