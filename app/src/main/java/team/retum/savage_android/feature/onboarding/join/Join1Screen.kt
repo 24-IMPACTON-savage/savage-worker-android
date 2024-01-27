@@ -50,7 +50,8 @@ private fun Title() {
 @SuppressLint("SuspiciousIndentation")
 @Composable
 fun Join1Screen(
-    navController: NavController
+    navController: NavController,
+    country: String
 ) {
 
     var name by remember { mutableStateOf("") }
@@ -74,7 +75,7 @@ fun Join1Screen(
                 modifier = if (!keyboardShow) Modifier.padding(horizontal = 16.dp) else Modifier,
                 onClick = {
                     if (name.isNotBlank()) {
-                        navController.navigate(NavGroup.Onboarding.Join2.id + "/${name}")
+                        navController.navigate(NavGroup.Onboarding.Join2.id + "/${country}/${name}")
                     } else {
                         // handling
                     }

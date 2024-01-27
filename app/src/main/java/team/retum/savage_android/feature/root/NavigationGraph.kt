@@ -8,7 +8,6 @@ import com.nohjason.momori.application.SavageApp
 import team.retum.savage_android.feature.onboarding.join.Join1Screen
 import team.retum.savage_android.feature.onboarding.join.Join2Screen
 import team.retum.savage_android.feature.onboarding.StartScreen
-import team.retum.savage_android.feature.onboarding.join.Join0Screen
 import team.retum.savage_android.feature.onboarding.join.Join3Screen
 import team.retum.savage_android.feature.onboarding.login.Login1Screen
 import team.retum.savage_android.feature.onboarding.login.Login2Screen
@@ -28,24 +27,28 @@ fun NavigationGraph(
         composable(NavGroup.Onboarding.Start.id) {
             StartScreen(navController = navController)
         }
-        composable(NavGroup.Onboarding.Join1.id) {
-            Join1Screen(navController = navController)
+//        composable(NavGroup.Onboarding.Join0.id) {
+//            Join0Screen(navController = navController)
+//        }
+        composable(NavGroup.Onboarding.Join1.id + "/{country}") {
+            Join1Screen(navController = navController, country = it.arguments?.getString("country")?: "")
         }
-        composable(NavGroup.Onboarding.Join2.id + "/{name}") {
-            val name = it.arguments?.getString("name")
-            Join2Screen(navController = navController, name = name ?: "")
+        composable(NavGroup.Onboarding.Join2.id + "/{country}/{name}") {
+            val name = it.arguments?.getString("name")?: ""
+            val country = it.arguments?.getString("country")?: ""
+            Join2Screen(navController = navController, name = name, country = country)
         }
-        composable(NavGroup.Onboarding.Join3.id) {
-            Join3Screen(navController = navController)
+        composable(NavGroup.Onboarding.Join3.id + "/{country}/{name}/{tel}") {
+            val name = it.arguments?.getString("name")?: ""
+            val country = it.arguments?.getString("country")?: ""
+            val tel = it.arguments?.getString("tel")?: ""
+            Join3Screen(navController = navController, name = name, country = country, tel = tel)
         }
         composable(NavGroup.Onboarding.Login2.id) {
             Login2Screen(navController = navController)
         }
         composable(NavGroup.Onboarding.Login1.id) {
             Login1Screen(navController = navController)
-        }
-        composable(NavGroup.Onboarding.Join0.id) {
-            Join0Screen(navController = navController)
         }
     }
 }

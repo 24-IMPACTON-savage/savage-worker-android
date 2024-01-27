@@ -50,7 +50,8 @@ private fun Title(name: String) {
 @Composable
 fun Join2Screen(
     navController: NavController,
-    name: String
+    name: String,
+    country: String
 ) {
     val context = LocalContext.current
 
@@ -72,14 +73,14 @@ fun Join2Screen(
             SavageTextField(
                 modifier = Modifier.padding(horizontal = 20.dp),
                 value = tel,
-                hint = "성함을 입력해 주세요.",
+                hint = "전화번호를 입력해 주세요.",
                 onValueChange = { tel = it })
             Spacer(modifier = Modifier.weight(1f))
             SavageButton(
                 modifier = if (!keyboardShow) Modifier.padding(horizontal = 16.dp) else Modifier,
                 onClick = {
                     if (tel.isNotBlank()) {
-                        navController.navigate(NavGroup.Onboarding.Join3.id)
+                        navController.navigate(NavGroup.Onboarding.Join3.id + "/${country}/${name}/${tel}")
                     } else {
                         // handling
                     }

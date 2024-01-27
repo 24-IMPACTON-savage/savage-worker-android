@@ -11,12 +11,17 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
+import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
+import kotlinx.coroutines.launch
+import team.retum.savage_android.data.RetrofitClient
+import team.retum.savage_android.feature.root.NavGroup
+import team.retum.savage_android.model.request.SignUpRequest
 import team.retum.savage_android.ui.component.SavageAppBar
 import team.retum.savage_android.ui.component.SavageButton
 import team.retum.savage_android.ui.component.SavageTextField
@@ -38,11 +43,15 @@ private fun Title() {
 @Composable
 fun Join3Screen(
     navController: NavController,
+    name: String,
+    country: String,
+    tel: String
 ) {
     val context = LocalContext.current
 
     var nickName by remember { mutableStateOf("") }
     val keyboardShow by rememberKeyboardIsOpen()
+    val coroutine = rememberCoroutineScope()
 
     SavageAppBar(
         callback = {
@@ -66,7 +75,16 @@ fun Join3Screen(
                 modifier = if (!keyboardShow) Modifier.padding(horizontal = 16.dp) else Modifier,
                 onClick = {
                     if (nickName.isNotBlank()) {
-
+                        coroutine.launch {
+                            RetrofitClient.userApi.signUp(SignUpRequest(
+                                contact = tel,
+                                name = name,
+                                address = "대한민국 경기도 성남시 분당구 판교로 242",
+                                introduce = nickName,
+                                country = country
+                            ))
+                            navController.navigate(NavGroup.Onboarding.Login1.id)
+                        }
                     } else {
                         // handling
                     }
