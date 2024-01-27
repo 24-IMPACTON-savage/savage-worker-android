@@ -15,7 +15,6 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.navigation.compose.rememberNavController
 import team.retum.savage_android.feature.root.NavigationGraph
-import team.retum.savage_android.ui.theme.SavageButton
 import team.retum.savage_android.ui.theme.SavageandroidTheme
 
 class MainActivity : ComponentActivity() {

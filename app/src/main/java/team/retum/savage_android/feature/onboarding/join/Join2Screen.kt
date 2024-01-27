@@ -18,6 +18,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
+import team.retum.savage_android.feature.root.NavGroup
 import team.retum.savage_android.ui.component.SavageAppBar
 import team.retum.savage_android.ui.component.SavageButton
 import team.retum.savage_android.ui.component.SavageTextField
@@ -78,7 +79,7 @@ fun Join2Screen(
                 modifier = if (!keyboardShow) Modifier.padding(horizontal = 16.dp) else Modifier,
                 onClick = {
                     if (tel.isNotBlank()) {
-
+                        navController.navigate(NavGroup.Onboarding.Join3.id)
                     } else {
                         // handling
                     }
