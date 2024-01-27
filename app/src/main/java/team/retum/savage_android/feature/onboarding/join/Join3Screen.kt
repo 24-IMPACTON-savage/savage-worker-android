@@ -79,11 +79,11 @@ fun Join3Screen(
                             RetrofitClient.userApi.signUp(SignUpRequest(
                                 contact = tel,
                                 name = name,
-                                address = "대한민국 경기도 성남시 분당구 판교로 242",
+                                passport = "123123-876523",
                                 introduce = nickName,
                                 country = country
                             ))
-                            navController.navigate(NavGroup.Onboarding.Login1.id)
+                            navController.popBackStack()
                         }
                     } else {
                         // handling

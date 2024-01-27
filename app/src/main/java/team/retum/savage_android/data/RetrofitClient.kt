@@ -6,6 +6,7 @@ import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import team.retum.savage_android.data.api.UserApi
+import team.retum.savage_android.data.interceptor.Interceptor
 import java.util.concurrent.TimeUnit
 
 object RetrofitClient {
@@ -14,13 +15,14 @@ object RetrofitClient {
         .connectTimeout(60, TimeUnit.SECONDS)
         .readTimeout(60, TimeUnit.SECONDS)
         .writeTimeout(60, TimeUnit.SECONDS)
+        .addInterceptor(Interceptor())
         .addInterceptor(HttpLoggingInterceptor().apply {
             level = HttpLoggingInterceptor.Level.BODY
         })
         .build()
 
     private val retrofit = Retrofit.Builder()
-        .baseUrl("")
+        .baseUrl("http://172.16.24.136:1313/")
         .client(okHttpClient)
         .addConverterFactory(GsonConverterFactory.create(GsonBuilder().create()))
         .build()

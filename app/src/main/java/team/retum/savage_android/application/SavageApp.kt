@@ -1,4 +1,4 @@
-package com.nohjason.momori.application
+package team.retum.savage_android.application
 
 import android.app.Application
 import android.content.Context

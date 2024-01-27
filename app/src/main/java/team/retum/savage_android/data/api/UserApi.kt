@@ -7,7 +7,7 @@ import team.retum.savage_android.model.request.SignUpRequest
 
 interface UserApi {
 
-    @POST("user/worker")
+    @POST("/user/worker")
     suspend fun signUp(
         @Body signUpRequest: SignUpRequest
     ): BaseResponse<Unit>
