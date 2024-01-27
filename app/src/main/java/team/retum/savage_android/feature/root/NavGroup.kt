@@ -10,4 +10,8 @@ sealed class NavGroup(val group: String) {
         data object Login1: Onboarding(id = "login1")
         data object Login2: Onboarding(id = "login2")
     }
+
+    sealed class Main(val id: String) : NavGroup("main") {
+        data object Setting: Main(id = "setting")
+    }
 }

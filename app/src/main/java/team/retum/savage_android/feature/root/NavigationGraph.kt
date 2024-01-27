@@ -11,6 +11,7 @@ import team.retum.savage_android.feature.onboarding.StartScreen
 import team.retum.savage_android.feature.onboarding.join.Join3Screen
 import team.retum.savage_android.feature.onboarding.login.Login1Screen
 import team.retum.savage_android.feature.onboarding.login.Login2Screen
+import team.retum.savage_android.feature.setting.SettingScreen
 
 
 @Composable
@@ -49,6 +50,9 @@ fun NavigationGraph(
         }
         composable(NavGroup.Onboarding.Login1.id) {
             Login1Screen(navController = navController)
+        }
+        composable(NavGroup.Main.Setting.id) {
+            SettingScreen(navController = navController)
         }
     }
 }
