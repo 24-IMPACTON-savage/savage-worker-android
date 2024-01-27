@@ -35,7 +35,7 @@ fun SavageAppBar(
             modifier = modifier
                 .background(color = SavageColor.White)
                 .fillMaxWidth()
-                .height(40.dp)
+                .height(52.dp)
         ) {
             Box(
                 modifier = Modifier
