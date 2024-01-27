@@ -65,7 +65,7 @@ fun Login1Screen(
                 modifier = if (!keyboardShow) Modifier.padding(horizontal = 16.dp) else Modifier,
                 onClick = {
                     if (name.isNotBlank()) {
-                        navController.navigate(NavGroup.Onboarding.Login2.id)
+                        navController.navigate(NavGroup.Onboarding.Login2.id + "/${name}")
                     } else {
                         // handling
                         Toast.makeText(context, "이름을 입력해 주세요", Toast.LENGTH_SHORT).show()

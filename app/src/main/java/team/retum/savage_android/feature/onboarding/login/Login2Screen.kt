@@ -12,12 +12,17 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
+import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
+import kotlinx.coroutines.launch
+import team.retum.savage_android.application.SavageApp
+import team.retum.savage_android.data.RetrofitClient
+import team.retum.savage_android.data.api.SignInRequest
 import team.retum.savage_android.feature.root.NavGroup
 import team.retum.savage_android.ui.component.SavageAppBar
 import team.retum.savage_android.ui.component.SavageButton
@@ -41,12 +46,14 @@ private fun Title() {
 
 @Composable
 fun Login2Screen(
-    navController: NavController
+    navController: NavController,
+    name: String
 ) {
 
     var tel by remember { mutableStateOf("") }
     val keyboardShow by rememberKeyboardIsOpen()
     val context = LocalContext.current
+    val coroutine = rememberCoroutineScope()
 
     SavageAppBar(
         callback = {
@@ -66,7 +73,12 @@ fun Login2Screen(
                 modifier = if (!keyboardShow) Modifier.padding(horizontal = 16.dp) else Modifier,
                 onClick = {
                     if (tel.isNotBlank()) {
-                        // mv to home
+                        coroutine.launch {
+                            val response = RetrofitClient.authApi.signIn(SignInRequest(contact = tel, name = name))
+                            val accessToken = response.data?.accesstoken?: ""
+                            SavageApp.prefs.accessToken = accessToken
+                            // TODO: mv to home
+                        }
                     } else {
                         // handling
                         Toast.makeText(context, "비밀번호를 입력해 주세요", Toast.LENGTH_SHORT).show()

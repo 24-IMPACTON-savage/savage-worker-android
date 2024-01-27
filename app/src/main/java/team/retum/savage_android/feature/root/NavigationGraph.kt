@@ -45,11 +45,12 @@ fun NavigationGraph(
             val tel = it.arguments?.getString("tel")?: ""
             Join3Screen(navController = navController, name = name, country = country, tel = tel)
         }
-        composable(NavGroup.Onboarding.Login2.id) {
-            Login2Screen(navController = navController)
-        }
         composable(NavGroup.Onboarding.Login1.id) {
             Login1Screen(navController = navController)
+        }
+        composable(NavGroup.Onboarding.Login2.id + "/{name}") {
+            val name = it.arguments?.getString("name")?: ""
+            Login2Screen(navController = navController, name = name)
         }
         composable(NavGroup.Main.Setting.id) {
             SettingScreen(navController = navController)
