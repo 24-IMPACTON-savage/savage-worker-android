@@ -21,4 +21,13 @@ object SavageColor {
     val Red = Color(0xFFE00001)
     val Green = Color(0xFF06E000)
 
+    val Primary10 = Color(0xFF0B321C)
+    val Primary20 = Color(0xFF145C33)
+    val Primary30 = Color(0xFF1E864A)
+    val Primary40 = Color(0xFF27AF62)
+    val Primary50 = Color(0xFF37D37A)
+    val Primary60 = Color(0xFF60DC96)
+    val Primary70 = Color(0xFF8AE5B1)
+    val Primary80 = Color(0xFFB4EECD)
+    val Primary90 = Color(0xFFDEF8E9)
 }
