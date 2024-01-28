@@ -67,6 +67,7 @@ dependencies {
 
     // material
     implementation("com.google.android.material:material:1.9.0")
+    implementation("androidx.compose.material:material-android:1.6.0")
 
 
     implementation("androidx.core:core-ktx:1.12.0")

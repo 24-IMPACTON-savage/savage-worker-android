@@ -27,6 +27,10 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <meta-data
+            android:name="com.kakao.vectormap.APP_KEY"
+            android:value="f23a872abb0fdbda92d104c701d08f55" />
+
     </application>
 
 </manifest>

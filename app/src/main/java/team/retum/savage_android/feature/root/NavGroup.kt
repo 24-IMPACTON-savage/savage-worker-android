@@ -13,5 +13,6 @@ sealed class NavGroup(val group: String) {
 
     sealed class Main(val id: String) : NavGroup("main") {
         data object Setting: Main(id = "setting")
+        data object Surround: Main(id = "surround")
     }
 }
