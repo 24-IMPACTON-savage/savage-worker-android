@@ -38,13 +38,13 @@ fun StartScreen(
         Text(
             modifier = Modifier
                 .padding(top = 72.dp),
-            text = "건강한 노동을 시작해 봐요!",
+            text = "건강한 근로를 시작해 봐요!",
             style = SavageTypography.HeadLine1
         )
         Text(
             modifier = Modifier
                 .padding(top = 8.dp),
-            text = "노동자용",
+            text = "근로자용",
             style = SavageTypography.Body2,
             color = SavageColor.Primary40
         )
