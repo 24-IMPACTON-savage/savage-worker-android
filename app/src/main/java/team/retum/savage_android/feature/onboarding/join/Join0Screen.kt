@@ -66,10 +66,10 @@ data class Country(
 )
 
 private val data = arrayListOf(
+    Country(image = "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9e/Flag_of_Japan.svg/255px-Flag_of_Japan.svg.png",
+        title = "japan"),
     Country(image = "https://mono.aks.ac.kr/s/media/05/058c61e6-b2c4-4cdf-b4a1-8915e5b24331.jpg?preset=page",
         title = "korea"),
-    Country(image = "https://lh3.googleusercontent.com/proxy/FXOvIqjoLnmGrvM3XVe4UNV3TpDCvMGJXZO4MrmoRCI263c_nyZv4swDT9eFd2_uSHc-_UCxWQ4Cx_SQ2sZGYsp-KhUJKLOWOE96atVwgdxC-AvKATk-kxNJWuXPtg",
-        title = "japan"),
     Country(image = "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcQLQ5VaV5Scbt1rWgLuq352uYuxTSgcUGqOzCXQFNctCW1S8Ci5y1cMMEaV04-0",
         title = "central african republic"),
     Country(image = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSp9Fa30l6-LILOzmGJgIhlHoXEqrz58om0GWvb1QPDmM2k0VW8Sbrd9J8N_diE",
@@ -118,12 +118,14 @@ fun Join0Screen(
                 modifier = Modifier
                     .fillMaxSize()
                     .background(Color.White)
-                    .padding(start = 40.dp)
                     .padding(top = 20.dp),
                 horizontalAlignment = Alignment.CenterHorizontally
             ) {
                 Title()
                 LazyVerticalGrid(
+                    modifier = Modifier
+                        .padding(start = 40.dp)
+                        .padding(top = 20.dp),
                     columns = GridCells.Fixed(3),
                     horizontalArrangement = Arrangement.Center,
                 ) {
@@ -165,7 +167,7 @@ fun A(country: Country, callback: () -> Unit) {
             modifier = Modifier
                 .width(80.dp)
                 .height(80.dp)
-                .clip(CircleShape),
+                /*.clip(CircleShape)*/,
             model = country.image,
             contentDescription = null)
         Text(text = country.title, style = SavageTypography.Body1)
