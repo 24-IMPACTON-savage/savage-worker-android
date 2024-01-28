@@ -6,4 +6,6 @@ data class SignUpRequest(
     val introduce: String,
     val country: String,
     val passport: String,
+    val latitude: Double,
+    val longitude: Double,
 )

@@ -77,7 +77,7 @@ fun Login2Screen(
                             val response = RetrofitClient.authApi.signIn(SignInRequest(contact = tel, name = name))
                             val accessToken = response.data?.accesstoken?: ""
                             SavageApp.prefs.accessToken = accessToken
-                            // TODO: mv to home
+                            navController.navigate(NavGroup.Main.Surround.id)
                         }
                     } else {
                         // handling

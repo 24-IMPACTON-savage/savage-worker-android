@@ -30,8 +30,10 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.viewinterop.AndroidView
+import androidx.navigation.NavController
 import kotlinx.coroutines.launch
 import team.retum.savage_android.R
+import team.retum.savage_android.feature.root.NavGroup
 import team.retum.savage_android.ui.component.SavageButton
 import team.retum.savage_android.ui.theme.SavageColor
 import team.retum.savage_android.ui.theme.SavageTypography
@@ -39,7 +41,9 @@ import team.retum.savage_android.util.initMapView
 
 @OptIn(ExperimentalMaterialApi::class)
 @Composable
-internal fun SurroundScreen() {
+internal fun SurroundScreen(
+    navController: NavController
+) {
     var title by remember { mutableStateOf("") }
     val sheetState = rememberModalBottomSheetState(
         initialValue = ModalBottomSheetValue.Hidden,
@@ -93,7 +97,9 @@ internal fun SurroundScreen() {
                             style = SavageTypography.HeadLine1,
                             color = SavageColor.White,
                         )
-                        IconButton(onClick = {}) {
+                        IconButton(onClick = {
+                            navController.navigate(NavGroup.Main.Profile.id)
+                        }) {
                             Icon(
                                 painter = painterResource(id = R.drawable.ic_person),
                                 contentDescription = null,

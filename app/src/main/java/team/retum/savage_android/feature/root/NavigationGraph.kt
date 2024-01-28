@@ -62,7 +62,10 @@ fun NavigationGraph(
             SettingScreen(navController = navController)
         }
         composable(NavGroup.Main.Surround.id) {
-            SurroundScreen()
+            SurroundScreen(navController = navController)
+        }
+        composable(NavGroup.Main.Profile.id) {
+            SettingScreen(navController = navController)
         }
     }
 }
